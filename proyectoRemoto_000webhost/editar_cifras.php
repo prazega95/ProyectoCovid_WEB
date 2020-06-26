@@ -58,10 +58,10 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
 
 
-      <form action="editar_cifras.php?cod_sintomas=<?php echo $_GET['cod_sintomas']; ?>" method="POST">
+      <form action="editar_cifras.php?cod_sintomas=<?php echo $_GET['cod_sintomas']; ?>" method="POST" onsubmit="return validar()"> 
 
-      <h5>CONDICIONES ACTUALES </h5><br>
-
+      <h1 class="text-center">Condiciones Actuales</h1>
+      <h6 class="text-center">---------------------------------------------------------</h6>
      
       <h6>Nombre :  
         <input name="nom_usuario" type="text" placeholder="<?php echo $row['nom_usuario'] ?>"  style="border:none;"></h6>
@@ -79,26 +79,32 @@ if (isset($_POST['update'])) {
 							<option value="Grave" <?php if($row['Condicion']=='Grave') echo 'selected'; ?>>Grave</option>
 							<option value="Moderado" <?php if($row['Condicion']=='Moderado') echo 'selected'; ?>>Moderado</option>
 							<option value="Saludable" <?php if($row['Condicion']=='Saludable') echo 'selected'; ?>>Saludable</option>
-						</select>
+						</select><label id="error" style="color:red"></label>
 			</div>
+
+
+
+
+
 
 
 
       <div class="form-group"><h6>Situacion actual :</h6> 
 					<label for="Resultado" class="col-sm-2 control-label"></label>
-
+          
 						<select class="form-control" id="Resultado" name="Resultado">
-              <option value="" <?php if($row['Resultado']=='') echo 'selected'; ?>>Seleccione..</option>
+              <option value="" <?php if($row['Resultado']=='') echo 'select'; ?>>Seleccione..</option>
+              <option value="No Confirmado" <?php if($row['Resultado']=='No Confirmado') echo 'selected'; ?>>No Confirmado</option>
 							<option value="Confirmado" <?php if($row['Resultado']=='Confirmado') echo 'selected'; ?>>Confirmado</option>
               <option value="Hospitalizado" <?php if($row['Resultado']=='Hospitalizado') echo 'selected'; ?>>Hospitalizado</option>
 							<option value="Fallecido" <?php if($row['Resultado']=='Fallecido') echo 'selected'; ?>>Fallecido</option>
 							<option value="Recuperado" <?php if($row['Resultado']=='Recuperado') echo 'selected'; ?>>Recuperado</option>
-						</select>
+						</select><label id="error2" style="color:red"></label>
 			</div>
 
 
-
-        <button class="btn-success" name="update">
+        <button class="btn-success" name="update"
+          onclick="borrar_condicion1(); borrar_resultado1();">
           Actualizar
        </button>
     
@@ -109,3 +115,4 @@ if (isset($_POST['update'])) {
   </div>
 </div>
 <?php include('includes/footer.php'); ?>
+<script src = 'validacion/formCondicion.js'></script>

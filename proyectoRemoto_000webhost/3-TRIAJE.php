@@ -6,10 +6,9 @@
 <h1 class="text-center">LISTA DE TRIAJE REGISTRADOS</h1>
 <br>
 
+
 <main class="container p-4">
   <div class="row">
-
-  
 
 
       <!-- MENSAJE DE GUARDADO-->

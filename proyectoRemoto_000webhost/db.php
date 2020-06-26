@@ -1,6 +1,11 @@
 <?php
 
-/*session_start();//(esto se agrego para poder darle el alert en los registros)*/
+if(!isset($_SESSION)) 
+    { 
+        session_start(); //(esto se agrego para poder darle el alert en los registros)
+    } 
+
+
 
 $conexion = mysqli_connect(
    'localhost',

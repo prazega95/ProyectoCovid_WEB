@@ -32,7 +32,6 @@
         <a href="4-CIFRAS.php">CONDICION</a>
         <a href="5-LOCALIZACION.php">LOCALIZACION</a>
         <a href="6-ADMINISTRADORES.php">ADMINISTRADORES</a>
-        <a href="7-GEOGRAFICA.php">GEOGRAFICA</a>
        
       </nav>
       

@@ -59,4 +59,10 @@ header {
     .header2 nav {
       line-height:50px;
     }
+
+  
+  }
+
+  .error {
+    color:red;
   }

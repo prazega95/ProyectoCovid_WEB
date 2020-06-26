@@ -1,6 +1,7 @@
 <?php include("db.php");  ?>
 
 <?php include('includes/header.php'); ?>
+<script src = 'validacion/formAdministrador.js'></script>
 
 <br>
 <h1 class="text-center">LISTA DE ADMINISTRADORES</h1>
@@ -31,24 +32,30 @@
       <h5 class="text-center">Formulario de administracion</h5>
       <h6 class="text-center">----------------------------------------------------</h6><br>
 
-        <form action="insertar_administrador.php" method="POST">
+        <form name="form1" action="insertar_administrador.php" method="POST" onsubmit="return validar()">
 
 
           <div class="form-group">
             <input type="text" name="nomape_admin" class="form-control" placeholder="Nombre:"  autofocus>
+            <label id="error" style="color:red"></label>
           </div>
           <div class="form-group" >
             <input type="number" name="fono_admin" class="form-control" placeholder="Telefono:" autofocus>
+            <label id="error2" style="color:red"></label>
           </div>
           <div class="form-group">
             <input type="text" name="usuario_admin" class="form-control" placeholder="Usuario:"  autofocus>
+            <label id="error3" style="color:red"></label>
           </div>
           <div class="form-group">
             <input type="text" name="contra_admin" class="form-control" placeholder="Clave:"  autofocus>
+            <label id="error4" style="color:red"></label>
           </div>
     
 
-          <input type="submit" name="grabar_tb_administrador" class="btn btn-success btn-block" value="REGISTRAR NUEVO">
+          <input type="submit" name="grabar_tb_administrador" class="btn btn-success btn-block" 
+                 onclick="borrar_nombre(); borrar_fono(); borrar_usuario(); borrar_contra();"
+                 value="REGISTRAR NUEVO">
 
         </form>
       </div>

@@ -1,10 +1,13 @@
 <?php include("db.php"); ?>
-
 <?php include('includes/header.php'); ?>
+<script src = 'validacion/formNoticias.js'></script>
+
 
 <br>
 <h1 class="text-center">LISTA DE NOTICIAS</h1>
 <br>
+
+
 
 <main class="container p-4">
   <div class="row">
@@ -33,22 +36,34 @@
       <h5 class="text-center">Formulario de administracion</h5>
       <h6 class="text-center">----------------------------------------------------</h6><br>
 
-        <form action="insertar_noticia.php" method="POST">
+        <form name="form1" action="insertar_noticia.php" method="POST" onsubmit="return validar()">
 
 
           <div class="form-group">
             <input type="text" name="titulo_noticia" class="form-control" placeholder="Titulo: " autofocus>
+            <label id="error" style="color:red"></label>
           </div>
 
           <div class="form-group">
             <textarea name="contenido_noticia" rows="2" class="form-control" placeholder="Contenido: " hein="150"></textarea>
+            <label id="error2" style="color:red"></label>
           </div>
 
-          <input type="submit" name="grabar_tb_noticias" class="btn btn-success btn-block" value="REGISTRAR NOTICIA">
+          <input type="submit" name="grabar_tb_noticias" onclick="borrar_titulo(); borrar_descripcion();"  class="btn btn-success btn-block" value="REGISTRAR NOTICIA">
 
         </form>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="col-md-8">
@@ -83,7 +98,7 @@
                 <i class="fas fa-marker"></i>
               </a>
 
-              <a href="eliminar_noticia.php?idnoticia=<?php echo $row['idnoticia']?>" class="btn btn-danger">
+              <a href="eliminar_noticia.php?idnoticia=<?php echo $row['idnoticia']?>"  class="btn btn-danger">
                 <i class="far fa-trash-alt"></i>
               </a>
 

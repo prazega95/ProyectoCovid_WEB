@@ -53,38 +53,45 @@ if (isset($_POST['update'])) {
 
 
 <?php include('includes/header.php'); ?>
+<script src = 'validacion/formAdministrador.js'></script>
+
 <div class="container p-4">
   <div class="row">
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
 
       <br><br>
-<h1 class="text-center">FORMULACION DE EDICION PARA CIUDADANO(A)</h1>
+<h1 class="text-center">FORMULACION DE EDICION</h1>
 <br>
 
 
-      <form action="editar_administrador.php?idAdmin=<?php echo $_GET['idAdmin']; ?>" method="POST">
+      <form name="form1" action="editar_administrador.php?idAdmin=<?php echo $_GET['idAdmin']; ?>" method="POST" onsubmit="return validar()">
 
 
         <div class="form-group">
           <input name="nomape_admin" type="text" class="form-control" value="<?php echo $nombre; ?>" placeholder="Nombre :">
+          <label id="error" style="color:red"></label>
         </div>
 
         
         <div class="form-group">
-        <input name="fono_admin" type="text" class="form-control" value="<?php echo $telefono; ?>" placeholder="Telefono :">
+          <input name="fono_admin" type="text" class="form-control" value="<?php echo $telefono; ?>" placeholder="Telefono :">
+          <label id="error2" style="color:red"></label>  
         </div>
 
         <div class="form-group">
-        <input name="usuario_admin" type="text" class="form-control" value="<?php echo $usuario; ?>" placeholder="Usuario :">
+          <input name="usuario_admin" type="text" class="form-control" value="<?php echo $usuario; ?>" placeholder="Usuario :">
+          <label id="error3" style="color:red"></label> 
         </div>
 
         <div class="form-group">
-        <input name="contra_admin" type="text" class="form-control" value="<?php echo $clave; ?>" placeholder="Clave :">
+          <input name="contra_admin" type="text" class="form-control" value="<?php echo $clave; ?>" placeholder="Clave :">
+          <label id="error4" style="color:red"></label> 
         </div>
 
 
-        <button class="btn-success" name="update">
+        <button class="btn-success" name="update"
+          onclick="borrar_nombre(); borrar_fono(); borrar_usuario(); borrar_contra();">
           Actualizar
         </button>
 
