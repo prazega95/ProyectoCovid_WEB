@@ -4,7 +4,7 @@
 
 
 <br>
-<h1 class="text-center">SITUACION MEDICA DE LOS CIUDADANOS</h1>
+<h1 class="text-center">SITUACIÓN MÉDICA DE LOS CIUDADANOS</h1>
 <br>
 
 
@@ -34,11 +34,12 @@
               <th>ID</th>
 							<th>NOMBRES </th>
 						  <th>APELLIDOS COMPLETOS</th>
-              <th>TIPO DE DOCUMENTO</th>     
+              <th>TIPO DE DOC.</th>     
+              <th>FECHA DE SU REGISTRO</th>
               <th>DEPARTAMENTO</th>
-						  <th>CONDICION</th>
+						  <th>CONDICIÓN</th>
 						  <th>RESULTADO</th>
-							<th>ACCION</th>
+							<th>ACTUALIZAR CONDICION</th>
           </tr>
         </thead>
 
@@ -49,7 +50,7 @@
         <tbody>
 
           <?php
-          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario, u.TipoDoc_usuario, s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
+          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario, u.TipoDoc_usuario, s.Fecha, s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
           $resultado_insert = mysqli_query($conexion, $query);    
           while($row = mysqli_fetch_assoc($resultado_insert)) { ?>
 
@@ -58,6 +59,7 @@
             <td><?php echo $row['nom_usuario']; ?></td>
             <td><?php echo $row['ape_usuario']; ?></td>
             <td><?php echo $row['TipoDoc_usuario']; ?></td>
+            <td><?php echo $row['Fecha']; ?></td>
             <td><?php echo $row['Departamento']; ?></td>
             <td><?php echo $row['Condicion']; ?></td>
             <td><?php echo $row['Resultado']; ?></td>

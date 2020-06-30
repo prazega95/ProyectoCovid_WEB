@@ -5,7 +5,7 @@ function validar_condicion(){
     
     if(lista==0 || lista==null || lista==""){
         
-        error.textContent="* Error: Debe Seleccionar en que condicion se encuentra";
+        error.textContent="* Seleccione en qué Condición se encuentra!";
         
         return false;
     }else{
@@ -21,7 +21,7 @@ function validar_resultado(){
     
     if(lista==0 || lista==null || lista==""){
         
-        error2.textContent="* Error: Debe Seleccionar El Resultado";
+        error2.textContent="* Seleccione en qué Situación Actual se encuentra!";
         
         return false;
     }else{

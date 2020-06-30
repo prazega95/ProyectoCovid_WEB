@@ -2,24 +2,30 @@ function validar_nombre(){
 				
     var nombre=document.form1.nomape_admin.value;
     var error=document.getElementById("error");
-    var valida=/^[a-zA-Z_ ]*$/;
+    var valida=/^[a-zA-ZñÑáéíóúÁÉÍÓÚ_ ]*$/;
     
     if(nombre===""){
-        error.textContent="* Error: Necesita Ingresar Nombres";
+        error.textContent="* Ingrese su(s) nombre(s)!";
         return false;
         
     }
     else if(nombre.length>20){
         
-        error.textContent="* Error: Demasiado caracteres";
+        error.textContent="* Demasiado caracteres!";
         return false;
     
     }
     else if(!valida.test(nombre)){
         
-        error.textContent="* Error: Solo se permite letras";
+        error.textContent="* Caracter(es) no permitido(s), verifique!";
         return false;
         
+    }
+    else if(/^\s*$/.test(nombre)){
+					
+        error.textContent="* No digite espacios en blanco2!";
+        return false;
+ 
     }else{
         return true;
     }
@@ -30,22 +36,28 @@ function validar_fono(){
     
     var fono=document.form1.fono_admin.value;
     var error2=document.getElementById("error2");
-    var valida1=/^[0-9_]{1,9}$/;
+    var valida=/^[9][0-9]*$/;
     
     if(fono===""){
-        error2.textContent="* Error: Necesita Ingresar Telefono/Celular";
+        error2.textContent="* Ingrese su Telefóno/Celular!";
         return false;
         
     }
     else if(fono.length>9){
         
-        error2.textContent="* Error: Error: Solo se permite 9 caracteres";
+        error2.textContent="* Existen más de 9 digitos, verifique!";
         return false;
     
     }
-    else if(!valida1.test(fono)){
+    else if(fono.length<9){
         
-        error2.textContent="* Error: Solo se permite numeros";
+        error2.textContent="* No escriba menos de 9 digitos!";
+        return false;
+    
+    }
+    else if(!valida.test(fono)){
+        
+        error2.textContent="* El formato de Teléfono es incorrecto, verifique!";
         return false;
         
     }else{
@@ -58,24 +70,30 @@ function validar_usuario(){
     
     var usuario=document.form1.usuario_admin.value;
     var error3=document.getElementById("error3");
-    var validar=/^[a-z-A-Z0-9_]*$/;
+    var validar=/^[a-z-A-ZñÑáéíóúÁÉÍÓÚ0-9_ ]*$/;
     
     if(usuario===""){
-        error3.textContent="* Error: Necesita Ingresar Usuario";
+        error3.textContent="* Ingrese su Usuario!";
         return false;
         
     }
     else if(usuario.length>20){
         
-        error3.textContent="* Error: Demasiado caracteres";
+        error3.textContent="* Demasiado caracteres!";
         return false;
     
     }
     else if(!validar.test(usuario)){
         
-        error3.textContent="* Error: Solo se permite numeros o letras";
+        error3.textContent="* Caracter(es) no permitido(s), verifique!";
         return false;
         
+    }
+    else if(/^\s*$/.test(usuario)){
+					
+        error3.textContent="* No digite espacios en blanco!";
+        return false;
+ 
     }else{
         return true;
     }
@@ -89,21 +107,27 @@ function validar_contra(){
     var validar1=/^[a-zA-Z0-9_]*$/;
     
     if(contra===""){
-        error4.textContent="* Error: Necesita Ingresar Clave";
+        error4.textContent="* Ingrese su Clave!";
         return false;
         
     }
     else if(contra.length>20){
         
-        error4.textContent="* Error: Demasiado caracteres";
+        error4.textContent="* Demasiado caracteres!";
         return false;
     
     }
     else if(!validar1.test(contra)){
         
-        error4.textContent="* Error: No se permiten espacios ni simbolos, solo numeros o letras";
+        error4.textContent="* Caracter(es) no permitido(s), verifique!";
         return false;
         
+    }
+    else if(/^\s*$/.test(contra)){
+					
+        error4.textContent="* No digite espacios en blanco!";
+        return false;
+ 
     }else{
         return true;
     }

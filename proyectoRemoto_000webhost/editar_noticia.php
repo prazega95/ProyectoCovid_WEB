@@ -48,7 +48,14 @@ if (isset($_POST['update'])) {
 <?php include('includes/header.php'); ?>
 <div class="container p-4">
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-12 mx-auto">
+
+      <!--boton regresars-->
+      <a href="1-NOTICIAS.php" class="btn btn-secondary">
+           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </a>
+
+       <!--Contenedor-->
       <div class="card card-body">
 
 

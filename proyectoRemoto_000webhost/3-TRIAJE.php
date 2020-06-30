@@ -26,19 +26,20 @@
 
     <div class="col-md">
 
-      <table class="table table-hover table-bordered" id="table">
-				<thead class="thead-dark text-center">
+    <table class="table table-hover table-bordered" id="table">
+      <thead thead class="thead-dark text-center">
 					<tr>
             <th>ID</th>
 						<th>NOMBRES</th>
 						<th>APELLIDOS</th>
-						<th>DEPARTAMENTO</th>
-						<th>PROVINCIA</th>
+						<th>DEPART.</th>
+						<th>PROVIN.</th>
 						<th>DISTRITO</th>
-						<th>DIRECCION</th>
+						<th>DIRECCIÓN</th>
 						<th>CANTIDAD FAMILIAR</th>
-						<th>PROFESION</th>
+						<th>PROFESIÓN</th>
 						<th>EMAIL</th>
+                        <th>FECHA</th>
 						<th>SINTOMAS</th>
 					</tr>
 				</thead>
@@ -47,7 +48,7 @@
         <tbody>
 
           <?php
-          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario,s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
+          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario,s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.Fecha, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
           $resultado_insert = mysqli_query($conexion, $query);    
           while($row = mysqli_fetch_assoc($resultado_insert)) { ?>
 
@@ -71,6 +72,7 @@
             <td><?php echo $row['NumeroFamiliar']; ?></td>
             <td><?php echo $row['Profesion']; ?></td>
             <td><?php echo $row['Email']; ?></td>
+            <td><?php echo $row['Fecha']; ?></td>
 
             <td>
                <button  class="btn btn-primary" href="listar_coordenadas_sintomas.php?cod_sintomas=<?php echo $row['cod_sintomas'] ?>" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalSintomas<?php echo $row['cod_sintomas']?>">

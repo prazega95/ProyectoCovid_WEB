@@ -32,6 +32,7 @@
             <th>ID</th>
 						<th>NOMBRES</th>
 						<th>APELLIDO</th>
+            <th>FECHA REGISTRADO</th>
 						<th>DEPARTAMENTO</th>
 						<th>PROVINCIA</th>
 						<th>DISTRITO</th>
@@ -46,7 +47,7 @@
         <tbody>
 
           <?php
-          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario,s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
+          $query = "SELECT s.cod_sintomas,u.nom_usuario, u.ape_usuario,s.Departamento, s.Provincia, s.Distrito, s.Direccion, s.Latitud, s.Longitud, s.NumeroFamiliar, s.Profesion,s.Email, s.Fecha, s.PrimerSintoma, s.SegundoSintoma, s.TercerSintoma, s.CuartoSintoma, s.QuintoSintoma, s.SextoSintoma,s.Condicion, s.Resultado from tb_sintomas s inner join tb_usuario u on s.cod_usuario = u.cod_usuario";
           $resultado_insert = mysqli_query($conexion, $query);    
           while($row = mysqli_fetch_assoc($resultado_insert)) { ?>
 
@@ -57,6 +58,7 @@
             <td><?php echo $row['cod_sintomas']; ?></td>
 		        <td><?php echo $row['nom_usuario']; ?></td>
             <td><?php echo $row['ape_usuario']; ?></td>
+            <td><?php echo $row['Fecha']; ?></td>
             <td><?php echo $row['Departamento']; ?></td>
             <td><?php echo $row['Provincia']; ?></td>
             <td><?php echo $row['Distrito']; ?></td>

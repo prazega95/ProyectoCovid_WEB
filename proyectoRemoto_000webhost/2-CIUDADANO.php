@@ -13,6 +13,11 @@
   <div class="row">
     <div class="col-md-4">
 
+    <script>
+
+    </script>
+
+
 
     <!-- CAPTURANDO EL VALOR DE TIPO DE DOCUMENTO Y MANDANDOLO A UN LABEL O INPUTTEXT PARA QUE LO GUARDE A MYSQL-->
      <script>
@@ -40,12 +45,6 @@
 
 
 
-
-
-
-
-
-
       <!-- INSERSION DE NUEVO CIUDADANO -->
       <div class="card card-body">
 
@@ -55,52 +54,58 @@
         <form name="form1" action="insertar_ciudadano.php" method="POST" onsubmit="return validar()">
 
 
-          <div class="form-group">
-            <input type="text" name="nom_usuario" class="form-control" placeholder="Nombre" autofocus>
+          <div class="form-group"><h6>Nombres :</h6>
+            <input type="text" name="nom_usuario" class="form-control" placeholder="Nombre" autofocus >
             <label id="error" style="color:red"></label>
           </div>
 
-          <div class="form-group">
+          <div class="form-group"><h6>Apellidos :</h6>
             <input type="text" name="ape_usuario" class="form-control" placeholder="Apellido" autofocus>
             <label id="error2" style="color:red"></label>
           </div>
 
-
-          <div class="form-group">
-              <input type="hidden"  id="txtCondicionScript" name="TipoDoc_usuario" class="form-control" placeholder="DNI"  autofocus>
+      
+          <div class="form-group"><h6>Tipo de Documento :</h6> 
 	
           		  <select id="IDCondicion" onchange="seleccionarCondicion();" class="form-control">
 							    <option value="" selected>Tipo de Documento ...</option>
                   <option value="1">DNI</option>
                   <option value="2">RUC</option>
-                  <option value="3">Pasaporte</option>
                 </select><label id="error3" style="color:red"></label>
 					</div>
 
-
-
           <div class="form-group">
-            <input type="number" name="doc_usuario" class="form-control" placeholder="Documento" autofocus >
-            <label id="error4" style="color:red"></label>
-          </div>
-
-          <div class="form-group">
-            <input type="number" name="tel_usuario" minlength="5" maxlength="9" class="form-control" placeholder="Telefono" autofocus>
+          <h6>Nº de documento :</h6>
+            <div class="row">
+              <div class="col-md-3">
+                <input type="text"  style="width:90px;" class="form-control" id="txtCondicionScript" name="TipoDoc_usuario" autofocus readonly>
+                <label id="errorCajaTipo" style="color:red"></label>
+              </div>
+              <div class="col-md-7">
+                <input type="number" style="width:220px;" id="nDOCUMENTO" name="doc_usuario" class="form-control" placeholder="Nº Documento" autofocus >
+                <label id="error4" style="color:red"></label>
+              </div> 
+             </div>
+          </div>   
+                
+           
+          <div class="form-group"><h6>Telefono :</h6>
+            <input type="number" id="formatotelefono" name="tel_usuario"  class="form-control" placeholder="Telefono" autofocus>
             <label id="error5" style="color:red"></label>
           </div>
 
-          <div class="form-group">
+          <div class="form-group"><h6>Usuario :</h6>
             <input type="text" name="login_usuario" class="form-control" placeholder="Usuario" autofocus>
             <label id="error6" style="color:red"></label>
           </div>
 
-          <div class="form-group">
+          <div class="form-group"><h6>Password :</h6>
             <textarea name="pass_usuario" rows="2" class="form-control" placeholder="Contraseña"></textarea>
             <label id="error7" style="color:red"></label>
           </div>
 
           <input type="submit" name="grabar_tb_usuario" class="btn btn-success btn-block" 
-                 onclick="borrar_nombre(); borrar_apellido(); borrar_TipoDoc(); borrar_documento(); borrar_telefono(); borrar_usuario(); borrar_clave();"
+                 onclick="borrar_nombre(); borrar_apellido(); borrar_TipoDoc(); borrar_cajaTipo(); borrar_documento(); borrar_telefono(); borrar_usuario(); borrar_clave();"
                  value="REGISTRAR NUEVO">
 
         </form>

@@ -29,8 +29,8 @@
 				<a href="1-NOTICIAS.php">NOTICIAS</a>
 				<a href="2-CIUDADANO.php">CIUDADANO</a>
 				<a href="3-TRIAJE.php">TRIAJE</a>
-        <a href="4-CIFRAS.php">CONDICION</a>
-        <a href="5-LOCALIZACION.php">LOCALIZACION</a>
+        <a href="4-CIFRAS.php">CONDICIÓN</a>
+        <a href="5-LOCALIZACION.php">LOCALIZACIÓN</a>
         <a href="6-ADMINISTRADORES.php">ADMINISTRADORES</a>
        
       </nav>

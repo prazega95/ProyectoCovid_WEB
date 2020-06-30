@@ -13,12 +13,32 @@ if (isset($_POST['grabar_tb_usuario'])) {
   $usuario = $_POST['login_usuario'];  
   $clave = $_POST['pass_usuario'];  
 
+	$sql1= mysqli_query($conexion,"SELECT COUNT(*) AS total FROM tb_usuario WHERE doc_usuario='{$documento}'");
+  $row1=mysqli_fetch_object($sql1);
+
+  $sql2= mysqli_query($conexion,"SELECT COUNT(*) AS total FROM tb_usuario WHERE tel_usuario='{$telefono}'");
+  $row2=mysqli_fetch_object($sql2);
+
+  $sql3= mysqli_query($conexion,"SELECT COUNT(*) AS total FROM tb_usuario WHERE login_usuario='{$usuario}'");
+  $row3=mysqli_fetch_object($sql3);
+
+   
+  if($row1->total == 1){   
+    die('ERROR: El Nº de Documento existe!, regresar y corregir');
+    
+  
 
 
-  /*Consultar si el valor es 0 (no hay considencias se registra), si el row es 1 es porque existe igual registro y no registra*/
-	$sql= mysqli_query($conexion,"SELECT COUNT(*) AS total FROM tb_usuario WHERE doc_usuario='{$documento}'");
-  $row=mysqli_fetch_object($sql);
-  if($row->total == 0){
+  }
+  else if($row2->total == 1){
+    die('ERROR: El Telefono existe!, regresar y corregir');
+
+ 
+  }
+  else if($row3->total == 1){
+    die('ERROR: El Usuario existe!, regresar y corregir');
+
+  }else{
 
     $insert="INSERT INTO tb_usuario(nom_usuario, ape_usuario, TipoDoc_usuario, doc_usuario, tel_usuario, login_usuario, pass_usuario) VALUES('{$nombre}','{$apellido}','{$tipoDocumento}','{$documento}','{$telefono}','{$usuario}','{$clave}')";
     $resultado_insert=mysqli_query($conexion,$insert);
@@ -27,15 +47,14 @@ if (isset($_POST['grabar_tb_usuario'])) {
        $_SESSION['message_type'] = 'success';
        header('Location: 2-CIUDADANO.php');
   }
-  else{
-       
-        $_SESSION['message'] = 'EL Nº DE DOCUMENTO YA EXISTE';
+
+      /*  $_SESSION['message'] = 'EL Nº DE DOCUMENTO YA EXISTE';
         $_SESSION['message_type'] = 'warning';
-        header('Location: 2-CIUDADANO.php');
-      }  
+        header('Location: 2-CIUDADANO.php');*/
+        
 
  }
-mysqli_close($conexion);  
+mysqli_close($conexion); 
 
 
 ?>

@@ -9,7 +9,6 @@ $longitud= '';
 $direccion= '';
 
 
-
 if  (isset($_GET['cod_sintomas'])) {
 
   $cod_sintomas = $_GET['cod_sintomas'];
@@ -23,7 +22,6 @@ if  (isset($_GET['cod_sintomas'])) {
     $departamento = $row['Departamento'];
     $provincia = $row['Provincia'];
     $distrito = $row['Distrito'];
-
     $latitud = $row['Latitud'];
     $longitud = $row['Longitud'];
     $direccion = $row['Direccion'];
@@ -34,10 +32,9 @@ if  (isset($_GET['cod_sintomas'])) {
 if (isset($_POST['update'])) {
   $cod_sintomas = $_GET['cod_sintomas'];
 
-  $departamento = $row['Departamento'];
-  $provincia = $row['Provincia'];
-  $distrito = $row['Distrito'];
-
+  $departamento = $_POST['Departamento'];
+  $provincia = $_POST['Provincia'];
+  $distrito = $_POST['Distrito'];
   $latitud = $_POST['Latitud'];   
   $longitud = $_POST['Longitud']; 
   $direccion = $_POST['Direccion']; 
@@ -47,7 +44,6 @@ if (isset($_POST['update'])) {
   $query = "UPDATE tb_sintomas set Departamento = '$departamento', 
                                    Provincia = '$provincia',
                                    Distrito = '$distrito',
-  
                                    Latitud = '$latitud', 
                                    Longitud = '$longitud',
                                    Direccion = '$direccion'
@@ -68,6 +64,16 @@ if (isset($_POST['update'])) {
 <div class="container p-6">
   <div class="row">
     <div class="col-md-6 mx-auto">
+
+
+
+
+      <!--boton regresars-->
+        <a href="5-LOCALIZACION.php" class="btn btn-secondary">
+           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </a>
+
+       <!--Contenedor-->
       <div class="card card-body">
 
 
@@ -119,12 +125,9 @@ if (isset($_POST['update'])) {
         </div>
 
         <div class="form-group">
-        <h6>Distrito :</h6> 
-        <input name="Distrito" type="text" class="form-control" value="<?php echo $distrito; ?>" placeholder="Distrito :">
-        <label id="error2" style="color:red"></label>
-        </div>
-
-
+           <h6>Distrito :</h6> 
+          <input name="Distrito" type="text" class="form-control" value="<?php echo $distrito; ?>" placeholder="Distrito :">
+          <label id="error2" style="color:red"></label>
 
 
 

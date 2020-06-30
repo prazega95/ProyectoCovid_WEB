@@ -58,11 +58,18 @@ if (isset($_POST['update'])) {
 <div class="container p-4">
   <div class="row">
     <div class="col-md-4 mx-auto">
+
+      <!--boton regresars-->
+       <a href="6-ADMINISTRADORES.php" class="btn btn-secondary">
+           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </a>
+
+       <!--Contenedor-->
       <div class="card card-body">
 
       <br><br>
-<h1 class="text-center">FORMULACION DE EDICION</h1>
-<br>
+      <h1 class="text-center">FORMULACION DE EDICION</h1>
+      <br>
 
 
       <form name="form1" action="editar_administrador.php?idAdmin=<?php echo $_GET['idAdmin']; ?>" method="POST" onsubmit="return validar()">
